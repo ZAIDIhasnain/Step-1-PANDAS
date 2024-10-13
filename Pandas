@@ -54,3 +54,39 @@ print(subset)
 # Select a specific row using its index
 first_row = data_frame.iloc[0]  # iloc stands for 'index location'
 print(first_row)
+
+3- Data Filtration
+
+# Filter rows where the strength is greater than 20 MPa
+high_strength_materials = data_frame[data_frame['Strength (MPa)'] > 20]
+print(high_strength_materials)
+
+# Filter rows where the Material is 'Steel'
+steel_data = data_frame[data_frame['Material'] == 'Steel']
+print(steel_data)
+
+4- Data Manipulation
+
+# Add a new column to the DataFrame
+data_frame['Cost (USD per ton)'] = [100, 800, 200, 150]
+print(data_frame)
+
+# Modify an existing column
+data_frame['Strength (MPa)'] = data_frame['Strength (MPa)'] * 1.1  # Increase strength by 10%
+print(data_frame)
+
+# Delete a column
+data_frame.drop('Density (kg/m^3)', axis=1, inplace=True)  # axis=1 refers to columns
+print(data_frame)
+
+#axis and inplace Parameters
+#The axis parameter determines whether you are working with rows or columns in the DataFrame. It tells Pandas which dimension to operate on:
+#axis=0: Refers to rows. If you set axis=0, it means you're dropping rows.
+#axis=1: Refers to columns. If you set axis=1, it means you're dropping columns.
+
+#The inplace parameter determines whether the operation should modify the original DataFrame or return a new modified DataFrame.
+#inplace=True: The changes are made directly to the original DataFrame. The original DataFrame is updated without needing to assign it to a new variable.
+#inplace=False (default): The method returns a new DataFrame with the changes applied, leaving the original DataFrame unchanged.
+#Why Use inplace=True?
+#Using inplace=True is more memory-efficient because it directly modifies the original DataFrame without creating a copy.
+#It's convenient when you don't need to keep the original DataFrame and just want to update it.
