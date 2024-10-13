@@ -1,0 +1,56 @@
+#If you don't have Pandas installed on your system, you can install it using the following command:
+pip install pandas
+#Pandas primarily has two data structures:
+#Series: A one-dimensional array, similar to a list or an array. (only a column)
+#DataFrame: A two-dimensional table, similar to an Excel spreadsheet or SQL table.
+
+import pandas as pd
+
+# Creating a Pandas Series
+data_series = pd.Series([10, 20, 30, 40, 50])
+print("Pandas Series:")
+print(data_series)
+
+# Creating a Pandas DataFrame
+data = {
+    'Material': ['Concrete', 'Steel', 'Wood', 'Brick'],
+    'Strength (MPa)': [30, 400, 15, 25],
+    'Density (kg/m^3)': [2400, 7850, 600, 1900]
+}
+data_frame = pd.DataFrame(data)
+print("\nPandas DataFrame:")
+print(data_frame)
+
+DataFrame Operations
+We'll cover the following fundamental operations:
+
+Inspecting Data: Understanding the structure and content of the DataFrame.
+Selecting Data: Extracting specific rows, columns, and values.
+Filtering Data: Applying conditions to filter rows.
+Data Manipulation: Adding, modifying, and deleting columns and rows.
+
+1- Inspecting Data
+#By default it will print the first 5 rows 
+print(data_frame.head())
+#printing specified rows in the following case first 2 rows will print
+print(data_frame.head(2))
+#printing every row except the last one
+print (data_frame.head(-1)) 
+#printing all the important information about the data 
+print(data_frame.describe())
+#Print a concise summary of a DataFrame.
+print(data_frame.info())
+
+2- Data Selecting
+
+# Select a single column (returns a Series)
+strength_column = data_frame['Strength (MPa)']
+print(strength_column)
+
+# Select multiple columns (returns a DataFrame)
+subset = data_frame[['Material', 'Density (kg/m^3)']]
+print(subset)
+
+# Select a specific row using its index
+first_row = data_frame.iloc[0]  # iloc stands for 'index location'
+print(first_row)
